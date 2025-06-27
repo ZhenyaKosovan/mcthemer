@@ -34,34 +34,45 @@ scale_fill_mastercard_c <- function(..., reverse = FALSE) {
 }
 
 # ---- 3.  Mastercard theme ---------------------------------------------------
+# 2. Mastercard theme ---------------------------------------------------------
 theme_mastercard <- function(base_size = 11,
-                             base_family = "Arial Narrow", # use "MarkOT" if you have it
-                             grid = "Y",
-                             axis = "xy") {
+                             base_family = c(
+                               "Mark for MC", # 1st choice
+                               "Helvetica", # Mac fallback
+                               "Arial"
+                             )[1], # Windows fallback
+                             grid_y = TRUE) {
   hrbrthemes::theme_ipsum(
     base_family = base_family,
-    base_size = base_size,
-    grid = grid,
-    axis = axis
+    base_size   = base_size,
+    grid        = if (grid_y) "Y" else "", # horizontal lines only
+    axis        = "xy"
   ) %+replace%
     ggplot2::theme(
-      # backgrounds
+      # neutral, open canvas
       plot.background = ggplot2::element_rect(fill = "white", colour = NA),
       panel.background = ggplot2::element_rect(fill = "white", colour = NA),
 
-      # text colours
+      # typography
       text = ggplot2::element_text(colour = mc_cols["dark"]),
       plot.title = ggplot2::element_text(
-        colour = mc_cols["red"],
+        colour = "black",
         face = "bold",
         size = ggplot2::rel(1.4)
       ),
       plot.subtitle = ggplot2::element_text(size = ggplot2::rel(1)),
 
-      # axis & grid tweaks
+      # grid
+      panel.grid.major.y = ggplot2::element_line(
+        colour = mc_cols["gray"],
+        linewidth = 0.25
+      ),
+      panel.grid.major.x = ggplot2::element_blank(),
+      panel.grid.minor = ggplot2::element_blank(),
+
+      # axes & ticks
       axis.text = ggplot2::element_text(colour = mc_cols["dark"]),
-      axis.ticks = ggplot2::element_line(colour = mc_cols["dark"]),
-      panel.grid.major = ggplot2::element_line(colour = mc_cols["gray"], linewidth = 0.3),
+      axis.ticks = ggplot2::element_line(colour = mc_cols["gray"]),
 
       # legend
       legend.position = "bottom",
