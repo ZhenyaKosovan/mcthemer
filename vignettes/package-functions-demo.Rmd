@@ -1,0 +1,19 @@
+---
+title: "package-functions-demo"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{package-functions-demo}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(mcthemer)
+```

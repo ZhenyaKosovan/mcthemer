@@ -1,4 +1,5 @@
 Package: mcthemer
+VignetteBuilder: knitr
 Title: Package with ggplot2 helper funcctions for Mastercard-themed plots
 Version: 1.0.0.0
 Authors@R: 
@@ -12,3 +13,7 @@ Imports:
     hrbrthemes (>= 0.8.7),
     ggplot2,
     scales
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
