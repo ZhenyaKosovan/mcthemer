@@ -1,1 +1,6 @@
-exportPattern("^[[:alpha:]]+")
+export(mc_pal)
+export(scale_colour_mastercard)
+export(scale_fill_mastercard)
+export(scale_colour_mastercard_c)
+export(scale_fill_mastercard_c)
+export(theme_mastercard)
